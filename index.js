@@ -7,32 +7,49 @@ function single (box, motion, box2) {
 }
 
 // TODO(sww): zero allocations! (out param?)
-// TODO(sww): only call cb() on each axis' winner (not ALL candidates)
 function set (box, motion, getBox, cb) {
   var box2 = undefined
   var offset = [motion[0], motion[1]]
+  var winnerX = undefined
+  var winnerY = undefined
 
   function heresABox (box2) {
     if (box2 !== null) {
       var leading = motion[0] > 0 ? box[0] + box[2] : box[0]
       var newX = moveAxis(box, motion, box2, 0)
-      if (newX !== leading + motion[0]) {
-        cb(box2, 0, motion[0] > 0 ? 1 : -1)
+      // decide winner
+      if (motion[0] > 0 && newX < offset[0]) {
+        offset[0] = newX
+        winnerX = box2
       }
-      if (motion[0] > 0) { offset[0] = Math.min(offset[0], newX) }
-      else { offset[0] = Math.max(offset[0], newX) }
+      else if (motion[0] < 0 && newX > offset[0]) {
+        offset[0] = newX
+        winnerX = box2
+      }
 
       var leading = motion[1] > 0 ? box[1] + box[3] : box[1]
       var newY = moveAxis(box, motion, box2, 1)
-      if (newY !== leading + motion[1]) {
-        cb(box2, 1, motion[1] > 0 ? 1 : -1)
+      // decide winner
+      if (motion[1] > 0 && newY < offset[1]) {
+        offset[1] = newY
+        winnerY = box2
       }
-      if (motion[1] > 0) { offset[1] = Math.min(offset[1], newY) }
-      else { offset[1] = Math.max(offset[1], newY) }
+      else if (motion[1] < 0 && newY > offset[1]) {
+        offset[1] = newY
+        winnerY = box2
+      }
     }
   }
 
   getBox(heresABox)
+
+  // winner callbacks for each axis
+  if (winnerX) {
+    cb(winnerX, 0, motion[0] > 0 ? 1 : -1)
+  }
+  if (winnerY) {
+    cb(winnerY, 1, motion[1] > 0 ? 1 : -1)
+  }
 
   return offset
 }
