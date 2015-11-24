@@ -1,0 +1,16 @@
+{
+  "name": "collide-2d-aabb-aabb",
+  "description": "test an aabb against other aabbs",
+  "version": "0.0.0",
+  "repository": {
+    "url": "git://github.com/noffle/collide-2d-aabb-aabb.git"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "tape test/*.js"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "tape": "*"
+  }
+}
