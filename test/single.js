@@ -1,7 +1,7 @@
 var collideSingle = require('../index').single
 var test = require('tape')
 
-test('single axes', function (t) {
+test('single - 1 axis', function (t) {
   var offset
 
   // right
@@ -24,7 +24,7 @@ test('single axes', function (t) {
 })
 
 
-test('two axes', function (t) {
+test('single - 2 axes', function (t) {
   var offset = collideSingle([0, 0, 16, 16], [-1, -1], [-10, -10, 10, 10])
   t.deepEquals(offset, [0, 0])
 
