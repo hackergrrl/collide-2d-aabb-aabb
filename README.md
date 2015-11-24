@@ -6,6 +6,12 @@
 `collide-2d-aabb-aabb` provides methods for testing against either a single AABB
 or a set of them in 2D space.
 
+## Installation
+
+```
+$ npm install collide-2d-aabb-aabb
+```
+
 
 ## Example: Test vs Single AABB
 
