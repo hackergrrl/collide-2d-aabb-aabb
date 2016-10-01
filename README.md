@@ -1,19 +1,17 @@
 # collide-2d-aabb-aabb
 
-> Determines whether a moving axis-aligned bounding box (AABB) collides with
+> Determine whether a moving axis-aligned bounding box (AABB) collides with
 > other AABBs.
 
-`collide-2d-aabb-aabb` provides methods for testing against either a single AABB
-or a set of them in 2D space.
+`collide-2d-aabb-aabb` provides methods for testing an AABB against either
 
-## Installation
+1. a single AABB, or
+2. a set of AABBs
 
-```
-$ npm install collide-2d-aabb-aabb
-```
+in 2D space.
 
 
-## Example: Test vs Single AABB
+## Usage: Test vs Single AABB
 
 ```javascript
 var collideSingle = require('collide-2d-aabb-aabb').single
@@ -32,7 +30,7 @@ outputs
 [2, 5]
 ```
 
-## Example: Test vs Set of AABBs
+## Usage: Test vs Set of AABBs
 
 ```javascript
 var collideSet = require('collide-2d-aabb-aabb').set
@@ -70,7 +68,7 @@ Detection and correction is applied on each X and Y axis separately, resulting
 in 0-2 calls to `onCollide`.
 
 
-## Usage
+## API
 
 ```javascript
 var single = require('collide-2d-aabb-aabb').single
@@ -116,6 +114,17 @@ in one or both axes.
 * `moveDir`: either -1 or 1, denoting the direction of the movement.
 
 
+## Installation
+
+```
+$ npm install collide-2d-aabb-aabb
+```
+
+
 ## License
 
 MIT
+
+---
+
+*(uses [common readme](https://github.com/noffle/common-readme))*
