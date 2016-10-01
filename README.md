@@ -1,3 +1,5 @@
+[![common-readme](https://img.shields.io/badge/readme-common-blue.svg?style=flat-square)](https://github.com/noffle/common-readme)
+
 # collide-2d-aabb-aabb
 
 > Determine whether a moving axis-aligned bounding box (AABB) collides with
@@ -124,7 +126,3 @@ $ npm install collide-2d-aabb-aabb
 ## License
 
 MIT
-
----
-
-*(uses [common readme](https://github.com/noffle/common-readme))*
